@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import LanguageToggle from "./LanguageToggle";
+import { API_BASE_URL } from "../services/api";
 
 /**
  * Top navigation bar — displays across all authenticated pages.
@@ -11,7 +12,7 @@ export default function Navbar() {
 
   async function handleLogout() {
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000"}/auth/logout`, {
+      await fetch(`${API_BASE_URL}/auth/logout`, {
         method: "POST",
         credentials: "include",
         headers: {
