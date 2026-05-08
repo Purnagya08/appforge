@@ -21,39 +21,30 @@ async function main() {
   const config = loadAppConfig();
   const app = express();
 
-  app.use(cors({
-    origin: "https://config-driven-app-builder.vercel.app",
-    credentials: true,
-  }));
-
   // ✅ REQUIRED FOR RENDER COOKIES
   app.set("trust proxy", 1);
 
   // ─────────────────────────────────────────────
-  // ✅ CORRECT CORS (DYNAMIC — THIS IS THE REAL FIX)
+  // ✅ CORS (DYNAMIC — SINGLE, CORRECT CONFIG)
   // ─────────────────────────────────────────────
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
+  const corsOptions: cors.CorsOptions = {
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        origin.includes("vercel.app") ||
+        origin.includes("localhost")
+      ) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "X-Requested-With", "Authorization"],
+  };
 
-        if (
-          origin.includes("vercel.app") ||
-          origin.includes("localhost")
-        ) {
-          return callback(null, true);
-        }
-
-        return callback(new Error("Not allowed by CORS"));
-      },
-      credentials: true,
-      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-      allowedHeaders: ["Content-Type", "X-Requested-With"],
-    })
-  );
-
-  // ✅ VERY IMPORTANT (preflight)
-  app.options("*", cors());
+  app.use(cors(corsOptions));
+  app.options("*", cors(corsOptions)); // ✅ preflight with same options
 
   app.use(express.json());
   app.use(cookieParser());
@@ -84,7 +75,7 @@ async function main() {
   // ─────────────────────────────────────────────
   app.get("/health", (_req, res) => res.status(200).send("OK"));
 
-  // ✅ AUTH ROUTES (correct)
+  // ✅ AUTH ROUTES
   app.use("/auth", authRouter);
 
   // ✅ OTHER ROUTES
