@@ -64,7 +64,7 @@ export function buildRoutes(
    * Job status
    */
   router.get("/api/jobs/:id", authMiddleware, (req, res) => {
-    const job = getJob(req.params.id);
+    const job = getJob(String(req.params.id));
     if (!job) {
       return res.status(404).json({
         error: true,
