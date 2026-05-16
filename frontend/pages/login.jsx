@@ -91,7 +91,7 @@ export default function Login() {
             color: "#fff",
             margin: "0 auto 16px",
           }}>
-            S
+            A
           </div>
           <h1 style={{
             fontSize: 20,
@@ -100,7 +100,7 @@ export default function Login() {
             margin: "0 0 4px",
             color: "var(--text)",
           }}>
-            SchemaForge
+            AppForge
           </h1>
           <p style={{
             fontSize: 13,

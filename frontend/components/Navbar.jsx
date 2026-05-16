@@ -45,14 +45,14 @@ export default function Navbar() {
         gap: "10px",
         textDecoration: "none",
       }}>
-        <img src="/logo.png" alt="SchemaForge Logo" style={{ width: 28, height: 28, borderRadius: 8, objectFit: "cover" }} />
+        <img src="/logo.png" alt="AppForge Logo" style={{ width: 28, height: 28, borderRadius: 8, objectFit: "cover" }} />
         <span style={{
           fontSize: 15,
           fontWeight: 700,
           letterSpacing: "-0.01em",
           color: "var(--text)",
         }}>
-          SchemaForge
+          AppForge
         </span>
       </Link>
 

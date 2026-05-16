@@ -105,7 +105,7 @@ export default function Home() {
       <section style={{
         textAlign: "center",
         padding: "80px 24px 64px",
-        background: "linear-gradient(to bottom, #ffffff, #eef2ff)",
+        background: "linear-gradient(to bottom, #ffffff, #f1f5f9)",
       }}>
         <div style={{
           maxWidth: 680,
@@ -147,7 +147,7 @@ export default function Home() {
           maxWidth: 480,
           margin: "0 auto 32px",
         }}>
-          SchemaForge generates full-stack CRUD interfaces, APIs, and validation
+          AppForge generates full-stack CRUD interfaces, APIs, and validation
           from a single JSON configuration file. No boilerplate.
         </p>
 
@@ -168,7 +168,7 @@ export default function Home() {
           }}>
             Explore Dashboard ↓
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" style={{
+          <a href="https://github.com/Purnagya08/appforge" target="_blank" rel="noreferrer" style={{
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
@@ -466,7 +466,7 @@ export default function Home() {
         fontSize: 12,
         color: "var(--text-muted)",
       }}>
-        SchemaForge — Config-driven full-stack CRUD system
+        AppForge — Config-driven full-stack CRUD system
       </footer>
 
       <footer style={{

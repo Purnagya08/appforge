@@ -139,7 +139,7 @@ export default function CsvImport({ schema, modelName, onImported, onError }) {
               <line x1="12" y1="3" x2="12" y2="15" />
             </svg>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-purple-600">Click to upload</span> or drag &amp; drop
+              <span className="font-semibold text-indigo-600">Click to upload</span> or drag &amp; drop
             </p>
             <p className="text-xs text-gray-600">.csv files only</p>
           </div>
@@ -211,7 +211,7 @@ export default function CsvImport({ schema, modelName, onImported, onError }) {
           {!result && (
             <button
               type="button"
-              className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-purple-700 hover:shadow-md disabled:opacity-50"
+              className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-700 hover:shadow-md disabled:opacity-50"
               onClick={doImport}
               disabled={importing || preview.rows.length === 0}
             >
