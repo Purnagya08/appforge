@@ -476,7 +476,7 @@ export default function Home() {
         fontSize: 12,
         color: "var(--text-muted)",
       }}>
-        Made By Ashish Kumar Jha
+        Made By Purnagya Raj
       </footer>
     </div>
   );
